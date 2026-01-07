@@ -1,24 +1,29 @@
-# FastAPI example
 from fastapi import FastAPI
 from pydantic import BaseModel
+from mcp_client import MCPClient
+from ollama_interpreter import OllamaInterpreter
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+mcp_client = MCPClient()
+interpreter = OllamaInterpreter()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("[FastAPI] Starting MCP client...")
+    await mcp_client.connect()
+    print("[FastAPI] MCP client connected")
+    try:
+        yield
+    finally:
+        print("[FastAPI] Closing MCP client...")
+        await mcp_client.close()
+        print("[FastAPI] MCP client closed")
+
+app = FastAPI(lifespan=lifespan)
 
 class CommandRequest(BaseModel):
     text: str
 
 @app.post("/command")
-def handle_command(req: CommandRequest):
-    # Map text to structured UnityAction
-    if "red" in req.text:
-        action = "turn_red"
-    elif "blue" in req.text:
-        action = "turn_blue"
-    else:
-        action = "unknown"
-
-    return {
-        "action": action,
-        "target": "Cube",
-        "parametersJson": "{}"
-    }
+async def handle_command(req: CommandRequest):
+    return await mcp_client.interpret_with_llm(req.text, interpreter)
