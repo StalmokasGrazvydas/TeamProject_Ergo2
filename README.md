@@ -14,10 +14,10 @@ place the fastapi.crt and fastapi.key files in a new folder /server/nginx/ssl/
 (This is required so the Unity program trusts the server connection)
 
 2. Navigate into the server folder: ```cd``` server and build/run the docker compose stack: ```docker-compose up --build```
-    i. Prerequisites: Docker Desktop installed: https://docs.docker.com/desktop/setup/install/windows-install/
-    ii. Prerequisites: Ollama installed: https://ollama.com/download
-    iii. Prerequisites: Ollama must have the model for the llm interpretation, you can download this by running ```ollama pull llama3.2:3b``` in a command line. Ollama must be running the endpoint for the model, do this by running ```ollama serve``` in the command line.
+    2.1. Prerequisites: Docker Desktop installed: https://docs.docker.com/desktop/setup/install/windows-install/
+    2.2. Prerequisites: Ollama installed: https://ollama.com/download
+    2.3. Prerequisites: Ollama must have the model for the llm interpretation, you can download this by running ```ollama pull llama3.2:3b``` in a command line. Ollama must be running the endpoint for the model, do this by running ```ollama serve``` in the command line.
 
 3. Once the server is running you can connect using the Unity project by entering your local ip in the input at the main menu
-    i. To know your local ip type ```ipconfig``` in the command line for Windows, ```ipconfig getifaddr en0``` in the terminal for Mac, or ```ifconfig``` on Linux
-    ii. Local ips usually have this structure: 192.168.x.x or 172.x.x.x or 10.x.x.x
+    2.1. To know your local ip type ```ipconfig``` in the command line for Windows, ```ipconfig getifaddr en0``` in the terminal for Mac, or ```ifconfig``` on Linux
+    2.2. Local ips usually have this structure: 192.168.x.x or 172.x.x.x or 10.x.x.x
