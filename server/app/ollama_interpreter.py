@@ -32,7 +32,7 @@ Respond ONLY with valid JSON:
 }}
 
 Examples:
-"make the cube red" → {{"tool": "set_color", "arguments": {{"target": "Cube", "color": "red"}}}}
+"make the cube red" → {{"tool": "set_color", "arguments": {{"target": "cube", "color": "red"}}}}
 
 For changing scenes, use the exact scene names provided: "MainMenu", "World_1", "World_2", "World_3", "World_4", "World_5"
 
