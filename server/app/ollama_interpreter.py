@@ -35,13 +35,13 @@ Examples:
 "make the cube red" → {{"tool": "set_color", "arguments": {{"target": "cube", "color": "red"}}}}
 
 For changing scenes, use the exact scene names provided: "MainMenu", "World_1", "World_2", "World_3", "World_4", "World_5"
+Only change the scene when explicitly requested by the user.
 
 User command:
 {text}
 """
 
         try:
-            # ✅ Remove the invalid 'host' argument
             response = ollama.chat(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
@@ -49,6 +49,7 @@ User command:
             )
 
             content = response["message"]["content"].strip()
+            print(f"[OllamaInterpreter] Ollama response:\n{content}")
             return json.loads(content)
         except json.JSONDecodeError:
             print(f"[OllamaInterpreter] Failed to parse JSON from response:\n{content}")
