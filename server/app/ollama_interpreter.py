@@ -34,8 +34,12 @@ Respond ONLY with valid JSON:
 Examples:
 "make the cube red" → {{"tool": "set_color", "arguments": {{"target": "cube", "color": "red"}}}}
 
-For changing scenes, use the exact scene names provided: "MainMenu", "World_1", "World_2", "World_3", "World_4", "World_5"
+For changing scenes, use the exact scene names provided: "Arcade", "Tundra", "Beach", "Forest", "Jungle"
 Only change the scene when explicitly requested by the user.
+
+For starting or stopping effects, use the exact effect names provided: "Rain"
+
+If you don't know what to do, change the cube color to red.
 
 User command:
 {text}
