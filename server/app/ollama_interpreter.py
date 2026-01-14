@@ -37,7 +37,7 @@ Examples:
 For changing scenes, use the exact scene names provided: "Arcade", "Tundra", "Beach", "Forest", "Jungle"
 Only change the scene when explicitly requested by the user.
 
-For starting or stopping effects, use the exact effect names provided: "Rain"
+For starting or stopping effects, use the exact effect names provided: "Rain", "Snow", "Petals"
 
 If you don't know what to do, change the cube color to red.
 
