@@ -24,6 +24,7 @@ place the fastapi.crt and fastapi.key files in a new folder /server/nginx/ssl/
 3. Navigate into the server folder: ```cd TeamProject_Ergo2/server```  and build/run the docker compose stack: ```docker-compose up --build```
   3.1 You only have to build once for the first time you run the project. Afterwards you can start/stop the backend within the Docker Desktop program.
 
+## Setting up the frontend
 4. Once the server is running you can connect using the Unity project by entering your local ip in the input at the main menu
   4.1. To know your local ip type ```ipconfig``` in the command line for Windows, ```ipconfig getifaddr en0``` in the terminal for Mac, or ```ifconfig``` on Linux
   4.2. Local ips usually have this structure: 192.168.x.x or 172.x.x.x or 10.x.x.x
