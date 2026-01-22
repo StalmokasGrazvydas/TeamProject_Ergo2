@@ -9,15 +9,20 @@ Creating an immersive 3D environment with voice commands in a 360° projector ro
 
 # Getting started
 ## Required programs
-- Install Git https://git-scm.com/install/ (Needed for generating our ssl certificate)
+- Install openssl https://slproweb.com/products/Win32OpenSSL.html (Needed for generating our ssl certificate)
 - Install Docker Desktop https://docs.docker.com/get-started/introduction/get-docker-desktop/ (Needed for running our container image applications that process the speech-to-text)
 - Install Ollama https://ollama.com/download (Needed to run our large language model locally on the separate computer that also has Docker)
 - Install Ollama large language model: after installing Ollama you can open your terminal and type ```ollama pull llama3.2:3b``` to download, wait until this is complete. After installing you can start the large language model service using ```ollama serve``` in the terminal
 
 ## Setting up the backend
-1. Generate a self-signed ssl certificate for your localhost for nginx using this command that generates a key and a certificate that is signed by you to tell Unity the connection is safe. This certificate and key stay valid for the number of days specified in the command after the argument -days.
+1. Generate a self-signed ssl certificate for your localhost for nginx using this command that generates a key and a certificate that is signed by you to tell Unity the connection is safe. 
+Run the install file, only option that matters is to copy OpenSSL DLLs to the OpenSSL binaries directory.
+Open terminal in administrator.
+Go to install directory (cd "C:\Program Files\OpenSSL-Win64\bin") to run the command for generating our certificates.
+This certificate and key stay valid for the number of days specified in the command after the argument -days.
 ```openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout fastapi.key -out fastapi.crt```
-place the fastapi.crt and fastapi.key files in a new folder /server/nginx/ssl/
+Press enter for all questions except for the common name, which should be: "localhost".
+Place the fastapi.crt and fastapi.key files in a new folder /server/nginx/ssl/.
 
 2. Clone this repository if you haven't already, into an empty folder: e.g. /experiential learning/ using the terminal with the command ```git clone https://github.com/StalmokasGrazvydas/TeamProject_Ergo2.git```
 
